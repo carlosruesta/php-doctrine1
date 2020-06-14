@@ -21,18 +21,13 @@ class Telefone
 
     /**
      * @ManyToOne(targetEntity="Aluno", inversedBy="telefones")
+     * @JoinColumn(name="aluno_id", referencedColumnName="id")
      */
     private $aluno;
 
     public function getId(): int
     {
         return $this->id;
-    }
-
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-        return $this;
     }
 
     public function getNumero(): string
