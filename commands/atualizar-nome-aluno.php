@@ -1,14 +1,14 @@
 <?php
 
+$id = $argv[1];
+$nome = $argv[2];
+
 use Alura\Doctrine\Entity\Aluno;
 use Alura\Doctrine\Helper\EntityManagerFactory;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 $entityManager = EntityManagerFactory::getEntityManager();
-
-$id = $argv[1];
-$nome = $argv[2];
 
 // Procurar aluno via Repository
 
