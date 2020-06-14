@@ -2,8 +2,12 @@
 
 namespace Alura\Doctrine\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * Class Aluno
+ *
  * @Entity
  *
  */
@@ -21,6 +25,16 @@ class Aluno
      */
     private string $nome;
 
+    /**
+     * @OneToMany(targetEntity="Telefone", mappedBy="aluno")
+     */
+    private Collection $telefones;
+
+    public function __construct()
+    {
+        $this->telefones = new ArrayCollection();
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -36,6 +50,20 @@ class Aluno
         $this->nome = $nome;
         return $this;
     }
+
+    public function getTelefones(): Collection
+    {
+        return $this->telefones;
+    }
+
+    public function addTelefone(Telefone $telefone): Aluno
+    {
+        $this->telefones->add($telefone);
+        $telefone->setAluno($this);
+        return $this;
+    }
+
+
 
 
 }
