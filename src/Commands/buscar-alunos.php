@@ -15,3 +15,18 @@ $alunos = $alunoRepository->findAll();
 foreach ($alunos as $aluno) {
     echo "Id = {$aluno->getId()}    Nome = {$aluno->getNome()} \n";
 }
+
+/* Outras formas de recuperar dados
+
+// buscar por um registro
+$aluno = $alunoRepository->find(4);
+
+// retorna um array de alunos
+$aluno = $alunoRepository->findBy(["nome" => "Gabriel"]);
+
+// retorna um objeto Aluno
+$aluno = $alunoRepository->findOneBy(["nome" => "Gabriel"]);
+var_dump($aluno);
+
+
+ */
