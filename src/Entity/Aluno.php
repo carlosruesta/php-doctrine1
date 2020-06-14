@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * Class Aluno
  *
- * @Entity
+ * @Entity(repositoryClass="Alura\Doctrine\Repository\AlunoRepository")
  *
  */
 class Aluno
