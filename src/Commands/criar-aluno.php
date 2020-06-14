@@ -5,13 +5,12 @@ use Alura\Doctrine\Helper\EntityManagerFactory;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-$aluno = new Aluno();
-$aluno->setNome('Vinicius Dias');
-
 $entityManager = EntityManagerFactory::getEntityManager();
 
+$nome = $argv[1];
+
+$aluno = new Aluno();
+$aluno->setNome($nome);
+
 $entityManager->persist($aluno);
-
-$aluno->setNome('Carlos Ruesta');
-
 $entityManager->flush();
